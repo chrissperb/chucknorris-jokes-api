@@ -16,4 +16,9 @@ public class ChuckNorrisController {
     public String getRandomJoke() {
         return chuckNorrisService.getRandomJoke();
     }
+
+    @GetMapping("/joke/pt")
+    public String getRandomJokeInPortuguese() {
+        return chuckNorrisService.getRandomJokeInPortugese();
+    }
 }
