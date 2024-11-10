@@ -1,7 +1,7 @@
 # Chuck Norris Jokes API
 
 Este projeto consiste em uma API RESTful simples construída com **Java** e **Spring Boot**, que fornece piadas aleatórias sobre Chuck Norris. A API consome dados de uma API externa de piadas sobre Chuck Norris e os expõe por meio de um endpoint acessível via HTTP.
-**IMPORTANTE:** A responsabilidade do teor das piadas e de responsabilidade do site original. 
+**IMPORTANTE:** A responsabilidade do teor das piadas é de inteira responsabilidade do site original. 
 
 ## Tecnologias Utilizadas
 
@@ -11,7 +11,7 @@ Este projeto consiste em uma API RESTful simples construída com **Java** e **Sp
 * **RestTemplate**: Para fazer requisições HTTP à API externa de piadas.
 * **Lombok**: Para reduzir o código boilerplate.
 * **Maven**: Para gerenciamento de dependências e build.
-* **Google Cloud Translation API**: Para traduzir as piadas do inglês para o português.
+* **DeepL Translation API**: Para traduzir as piadas do inglês para o português.
 
 ## Funcionalidades
 
