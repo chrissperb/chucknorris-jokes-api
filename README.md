@@ -1,6 +1,7 @@
 # Chuck Norris Jokes API
 
 Este projeto consiste em uma API RESTful simples construída com **Java** e **Spring Boot**, que fornece piadas aleatórias sobre Chuck Norris. A API consome dados de uma API externa de piadas sobre Chuck Norris e os expõe por meio de um endpoint acessível via HTTP.
+**IMPORTANTE:** A responsabilidade do teor das piadas e de responsabilidade do site original. 
 
 ## Tecnologias Utilizadas
 
@@ -46,30 +47,25 @@ chucknorris-jokes-api
 
 ```mermaid
 classDiagram
-    ChuckNorrisController --> ChuckNorrisService
-    ChuckNorrisService --> RestTemplate
-    ChuckNorrisService --> GoogleCloudTranslateAPI
-    
-    class ChuckNorrisController {
-        +getRandomJoke() String
-        +getRandomJokeInPortuguese() String
+    class ChucknorrisJokesApiApplication {
+        +main(String[] args)
     }
 
     class ChuckNorrisService {
         -RestTemplate restTemplate
-        -String googleApiKey
-        +getJokeInPortuguese() String
-        +getRandomJokeFromApi() String
-        +translateToPortuguese(text: String) String
+        -String deeplApiKey
+        +getRandomJoke() String
+        -translateToPortuguese(String text) String
     }
 
-    class RestTemplate {
-        +getForObject(url: String, responseType: Class<T>)
+    class ChuckNorrisController {
+        -ChuckNorrisService chuckNorrisService
+        +getRandomJoke() String
     }
 
-    class GoogleCloudTranslateAPI {
-        +translate(text: String, sourceLang: String, targetLang: String) String
-    }
+    ChucknorrisJokesApiApplication --> ChuckNorrisService : uses
+    ChuckNorrisController --> ChuckNorrisService : depends on
+
 ```
 
 ## Como executar:
@@ -78,11 +74,10 @@ classDiagram
 
 `cd chucknorris-jokes-api`
 
-### 2. Adicione a sua chave de API do Google Cloud no arquivo `application.properties`:
-`google.api.key=YOUR_GOOGLE_API_KEY`
+### 2. Adicione a sua chave de API do DeepL no arquivo `application.properties`:
+`deep.api.key=YOUR_DEEPL_API_KEY`
 
-### 3. Execute a aplicação usando o Maven ou a sua IDE preferida:
-`mvn spring-boot:run`
+### 3. Compile e execute a aplicação na sua IDE preferida.
 
 ### 4. Faça as requisições:
 Acesse o endpoint `http://localhost:8080/api/joke` para obter uma piada em inglês ou `http://localhost:8080/api/joke/pt` para obter uma piada em português.

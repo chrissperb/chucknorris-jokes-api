@@ -20,6 +20,11 @@ public class ChuckNorrisService {
 
     public String getRandomJoke() {
         String joke = restTemplate.getForObject(API_URL, String.class);
+        return joke;
+    }
+
+    public String getRandomJokeInPortugese() {
+        String joke = restTemplate.getForObject(API_URL, String.class);
         return translateToPortuguese(joke);
     }
 
